@@ -19,13 +19,17 @@ const props = defineProps({
   color: #E5E5E5;
   cursor: pointer;
 
+  &:hover {
+    color: #b3b3b3;
+  }
+
   &.active * {
     font-weight: 900;
     cursor: default;
-  }
 
-  &:hover {
-    color: #b3b3b3;
+    &:hover {
+      color: #E5E5E5;
+    }
   }
 }
 </style>
