@@ -5,7 +5,7 @@
                 <path d="M8 5.33334L28 16L8 26.6667V5.33334Z" fill="#141414"></path>
             </svg>
 
-            <div class="oynat">Oynat</div>
+            <div class="watch">Assistir</div>
         </div>
 
         <div class="more-info-button">
@@ -15,7 +15,7 @@
                     fill="white"></path>
             </svg>
 
-            <div class="daha-fazla-bilgi">Daha Fazla Bilgi</div>
+            <div class="more-information">Mais Informações</div>
         </div>
     </div>
 </template>
@@ -53,7 +53,7 @@
             overflow: visible;
         }
 
-        .oynat {
+        .watch {
             color: var(--black, #141414);
             text-align: left;
             font: var(--netflix-sans-medium-22-px, 500 22px 'Netflix Sans', sans-serif);
@@ -84,7 +84,7 @@
             overflow: visible;
         }
 
-        .daha-fazla-bilgi {
+        .more-information {
             color: var(--white, #ffffff);
             text-align: left;
             font: var(--netflix-sans-medium-22-px, 500 22px 'Netflix Sans', sans-serif);
