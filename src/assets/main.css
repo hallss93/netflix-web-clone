@@ -23,7 +23,7 @@ a,
 
 
 * {
-  font-family: 'Netflix Sans';
+  font: var(--netflix-sans-medium-14-px, 500 14px 'Netflix Sans', sans-serif);
   font-style: normal;
-  font-weight: 200;
+  font-weight: 400;
 }
