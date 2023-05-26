@@ -1,40 +1,23 @@
 <template>
-    <div class="carousel-container">
-        <div class="title">{{ props.title }}</div>
-        <carousel :items-to-show="11" :items-to-scroll="11" style="width: 100%;">
-            <slide v-for="slide in props.list" :key="slide.id">
-                <CarouselMovieSlide :item="slide">
-                    <template v-slot:content>
-                        <img class="movie-poster3" :src="'https://image.tmdb.org/t/p/w300/' + slide.poster_path">
-                    </template>
-                </CarouselMovieSlide>
-            </slide>
-            <template #addons>
-                <navigation />
-            </template>
-        </carousel>
+    <div class="movie-horizontal-card">
+        <div class="progress-bar">
+            <div class="progress-bar2"></div>
+
+            <div class="progress"></div>
+        </div>
+
+        <div class="movie-poster2">
+            <slot name="content"></slot>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import {
-    Carousel,
-    Slide,
-    Navigation
-} from 'vue3-carousel'
-
-import type IMovie from '@/interfaces/movie.interface';
-import CarouselMovieSlide from './CarouselMovieSlide.vue'
-
-const props = defineProps({
-    list: Array<IMovie>,
-    title: String,
-})
 </script>
   
 <style lang="scss" scoped>
 .carousel-container~.carousel-container {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .carousel-container {

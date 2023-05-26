@@ -1,10 +1,11 @@
 <template>
     <div class="carousel-container">
         <div class="title">{{ props.title }}</div>
-        <carousel :items-to-show="11" :items-to-scroll="11" style="width: 100%;">
-            <slide v-for="slide in props.list" :key="slide.id">
+        <carousel :items-to-show="5" :items-to-scroll="11" style="width: 100%;">
+            <slide v-for="slide, index in props.list" :key="slide.id">
                 <CarouselMovieSlide :item="slide">
                     <template v-slot:content>
+                        <component :is="getComponet(index)" />
                         <img class="movie-poster3" :src="'https://image.tmdb.org/t/p/w300/' + slide.poster_path">
                     </template>
                 </CarouselMovieSlide>
@@ -25,11 +26,37 @@ import {
 
 import type IMovie from '@/interfaces/movie.interface';
 import CarouselMovieSlide from './CarouselMovieSlide.vue'
+import number1 from './TopNumbers/number1.vue'
+import number2 from './TopNumbers/number2.vue'
+import number3 from './TopNumbers/number3.vue'
+import number4 from './TopNumbers/number4.vue'
+import number5 from './TopNumbers/number5.vue'
+import number6 from './TopNumbers/number6.vue'
+import number7 from './TopNumbers/number7.vue'
+import number8 from './TopNumbers/number8.vue'
+import number9 from './TopNumbers/number9.vue'
+import number10 from './TopNumbers/number10.vue'
 
 const props = defineProps({
     list: Array<IMovie>,
     title: String,
 })
+
+const getComponet = (index: number) => {
+    switch (index) {
+        case 0: return number1;
+        case 1: return number2;
+        case 2: return number3;
+        case 3: return number4;
+        case 4: return number5;
+        case 5: return number6;
+        case 6: return number7;
+        case 7: return number8;
+        case 8: return number9;
+        case 9: return number10
+    }
+    return number1
+}
 </script>
   
 <style lang="scss" scoped>
@@ -55,53 +82,14 @@ const props = defineProps({
         position: relative;
 
     }
+}
 
-    .movie-horizontal-card {
-        flex-shrink: 0;
-        width: 106px;
-        height: 171px;
-        position: relative;
-
-        .progress-bar {
-            width: 106px;
-            height: 3px;
-            position: absolute;
-            left: 0px;
-            top: 168px;
-            overflow: hidden;
-
-            .progress-bar2 {
-                background: var(--mid-gray, rgba(109, 109, 110, 0.70));
-                width: 106px;
-                height: 3px;
-                position: absolute;
-                left: 0px;
-                top: 0px;
-            }
-
-            .progress {
-                background: var(--red, #b9090b);
-                width: 20px;
-                height: 3px;
-                position: absolute;
-                left: 0px;
-                top: 0px;
-            }
-        }
-
-        .movie-poster2 {
-            width: 110px;
-            height: 160px;
-
-            .movie-poster3 {
-                border-radius: 2px;
-                width: auto;
-                height: 160px;
-                position: absolute;
-                left: 0px;
-                top: 0px;
-            }
-        }
-    }
+.movie-poster3 {
+    border-radius: 2px;
+    width: auto;
+    height: 160px;
+    position: absolute;
+    left: 106px;
+    top: 0px;
 }
 </style>
