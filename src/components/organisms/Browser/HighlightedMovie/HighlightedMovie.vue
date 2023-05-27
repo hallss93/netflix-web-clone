@@ -18,8 +18,8 @@
     </div>
 </template>
 <script lang="ts" setup>
-import Buttons from './Buttons/index.vue'
-import RankIcon from './RankIcon/index.vue'
+import Buttons from '@/components/molecules/Browser/HighlightedMovie/Buttons/index.vue'
+import RankIcon from '@/components/atoms/Browser/HighlightedMovie/RankIcon/index.vue'
 </script>
   
 <style lang="scss" scoped>
@@ -39,7 +39,7 @@ import RankIcon from './RankIcon/index.vue'
         justify-content: flex-start;
         position: absolute;
         left: 60px;
-        top: 282px;
+        top: 22vw;
 
         .movie-name {
             flex-shrink: 0;
@@ -52,6 +52,28 @@ import RankIcon from './RankIcon/index.vue'
             font: var(--netflix-sans-regular-26-px, 400 26px 'Netflix Sans', sans-serif);
             position: relative;
             width: 52%;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .highlighted-movie-info {
+            top: 10vw;
+
+
+            .movie-name {
+                width: 45%;
+            }
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .highlighted-movie-info {
+
+
+            .movie-description {
+                font: var(--netflix-sans-regular-26-px, 400 18px 'Netflix Sans', sans-serif);
+                width: 60%;
+            }
         }
     }
 }

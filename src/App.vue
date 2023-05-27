@@ -7,6 +7,10 @@ import { RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+main {
+  display: flex;
+  justify-content: center;
+}
 
 header {
   line-height: 1.5;

@@ -1,7 +1,7 @@
 <template>
     <div class="carousel-container">
         <div class="title">{{ props.title }}</div>
-        <carousel :items-to-show="11" :items-to-scroll="11" style="width: 100%;">
+        <carousel :items-to-show="itemsToShow" :items-to-scroll="11" style="width: 100%;">
             <slide v-for="slide in props.list" :key="slide.id">
                 <CarouselMovieSlide :item="slide">
                     <template v-slot:content>
@@ -24,12 +24,15 @@ import {
 } from 'vue3-carousel'
 
 import type IMovie from '@/interfaces/movie.interface';
-import CarouselMovieSlide from './CarouselMovieSlide.vue'
+import CarouselMovieSlide from '@/components/atoms/Browser/CarouselMovieSlide.vue';
+import composableCarousel from '@/composables/Carousel'
 
 const props = defineProps({
     list: Array<IMovie>,
     title: String,
 })
+const { itemsToShow } = composableCarousel()
+
 </script>
   
 <style lang="scss" scoped>

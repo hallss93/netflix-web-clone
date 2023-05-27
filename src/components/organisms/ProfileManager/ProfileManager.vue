@@ -10,14 +10,14 @@
         </div>
       </div>
     </div>
-    <ProfileManagerHeader />
+    <ProfileHeader />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
-import ProfileCards from './ProfileCards/index.vue'
-import ProfileManagerHeader from './ProfileManagerHeader/index.vue'
+import { useRouter } from 'vue-router'; 
+import ProfileCards from '@/components/molecules/ProfileManager/ProfileCards.vue';
+import ProfileHeader from './ProfileHeader.vue';
 
 const router = useRouter();
 

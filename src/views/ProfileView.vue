@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ProfileBrowser from '../components/ProfileBrowser.vue'
+import ProfileManager from '../components/organisms/ProfileManager/ProfileManager.vue'
 </script>
 
 <template>
   <main>
-    <ProfileBrowser />
+    <ProfileManager />
   </main>
 </template>

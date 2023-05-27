@@ -1,14 +1,14 @@
 <template>
-    <div class="profile-cards">
-        <div class="profile-card" v-for="prof in profiles" :key="prof.id" @click="handleClickProfile(prof.id)">
+    <div class="profile-card" @click="handleClickProfile(props.profile?.id)">
+
+        <template v-if="props.profile?.id > 0">
             <div class="profile-picture">
-                <img class="profile-picture" :src="prof.img" />
+                <img class="profile-picture" :src="props.profile?.img" />
             </div>
+            <div class="profile-name">{{ props.profile?.name }}</div>
+        </template>
 
-            <div class="profile-name">{{ prof.name }}</div>
-        </div>
-
-        <div class="profile-card" @click="handleClickProfile(0)">
+        <template v-else>
             <div class="profile-picture">
                 <svg class="add" width="120" height="120" viewBox="0 0 120 120" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -27,26 +27,22 @@
                     </defs>
                 </svg>
             </div>
-
             <div class="profile-name">Adicionar Perfil</div>
-        </div>
+        </template>
+
     </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
 
 
 const emit = defineEmits<{
     (e: 'clicked', id: number): void;
 }>();
 
-const profiles = reactive([
-    { id: 1, name: 'Maria', img: 'http://occ-0-7266-3851.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABXuurmkiCsw7ucJzV1WgJMQz09Wo9RnX5NreritRygVutW0vVPZuUeENaLN_1hcjJrReDGOEVHPEZk9JWXqFK6sCyEPCgCR1j14z.png?r=eea' },
-    { id: 2, name: 'João', img: 'http://occ-0-7266-3851.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABWw0vRAvv1VCQh43eIGGbOU9YGB0c_wGM1K8LDuUnYfB0jVIwRW1gTpYldIoy67LtH1Ky8cxhC_mjBb6C4qfcJWHzLAJasWAXuNR.png?r=ce4' },
-    { id: 3, name: 'Pedro', img: 'http://occ-0-7266-3851.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABfNXUMVXGhnCZwPI1SghnGpmUgqS_J-owMff-jig42xPF7vozQS1ge5xTgPTzH7ttfNYQXnsYs4vrMBaadh4E6RTJMVepojWqOXx.png?r=1d4' },
-    { id: 4, name: 'Francisco', img: 'http://occ-0-7266-3851.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdi6oYb6DJb1LndQWckgaXvrqqP3QURNa8Xngiq7wwFwDtWIg1otEuYKVxbYwS9c5clAI1_Bn7DuljwcvhfUzQu2_Y2v9y5P6t_n.png?r=e6e' },
-])
+const props = defineProps({
+    profile: Object,
+})
 
 const handleClickProfile = (id: number) => {
     emit('clicked', id)
@@ -54,16 +50,6 @@ const handleClickProfile = (id: number) => {
 </script>
 
 <style lang="scss" scoped>
-.profile-cards {
-    padding: 30px 30px 30px 30px;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
 .profile-card {
     flex-shrink: 0;
     width: 200px;

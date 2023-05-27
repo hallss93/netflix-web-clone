@@ -1,14 +1,14 @@
 <template>
     <div class="carousel-container">
         <div class="title">{{ props.title }}</div>
-        <carousel :items-to-show="5" :items-to-scroll="11" style="width: 100%;">
+        <carousel :items-to-show="itemsToShow / 2" :items-to-scroll="11" style="width: 100%;">
             <slide v-for="slide, index in props.list" :key="slide.id">
-                <CarouselMovieSlide :item="slide">
+                <CarouselTopMovieSlide :item="slide">
                     <template v-slot:content>
                         <component :is="getComponet(index)" />
                         <img class="movie-poster3" :src="'https://image.tmdb.org/t/p/w300/' + slide.poster_path">
                     </template>
-                </CarouselMovieSlide>
+                </CarouselTopMovieSlide>
             </slide>
             <template #addons>
                 <navigation />
@@ -25,22 +25,24 @@ import {
 } from 'vue3-carousel'
 
 import type IMovie from '@/interfaces/movie.interface';
-import CarouselMovieSlide from './CarouselMovieSlide.vue'
-import number1 from './TopNumbers/number1.vue'
-import number2 from './TopNumbers/number2.vue'
-import number3 from './TopNumbers/number3.vue'
-import number4 from './TopNumbers/number4.vue'
-import number5 from './TopNumbers/number5.vue'
-import number6 from './TopNumbers/number6.vue'
-import number7 from './TopNumbers/number7.vue'
-import number8 from './TopNumbers/number8.vue'
-import number9 from './TopNumbers/number9.vue'
-import number10 from './TopNumbers/number10.vue'
+import CarouselTopMovieSlide from '@/components/atoms/Browser/CarouselTopMovieSlide.vue';
+import number1 from '@/components/atoms/Browser/TopNumbers/number1.vue';
+import number2 from '@/components/atoms/Browser/TopNumbers/number2.vue'
+import number3 from '@/components/atoms/Browser/TopNumbers/number3.vue'
+import number4 from '@/components/atoms/Browser/TopNumbers/number4.vue'
+import number5 from '@/components/atoms/Browser/TopNumbers/number5.vue'
+import number6 from '@/components/atoms/Browser/TopNumbers/number6.vue'
+import number7 from '@/components/atoms/Browser/TopNumbers/number7.vue'
+import number8 from '@/components/atoms/Browser/TopNumbers/number8.vue'
+import number9 from '@/components/atoms/Browser/TopNumbers/number9.vue'
+import number10 from '@/components/atoms/Browser/TopNumbers/number10.vue'
+import composableCarousel from '@/composables/Carousel'
 
 const props = defineProps({
     list: Array<IMovie>,
     title: String,
 })
+const { itemsToShow } = composableCarousel()
 
 const getComponet = (index: number) => {
     switch (index) {

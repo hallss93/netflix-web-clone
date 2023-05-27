@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import BrowserHome from '../components/organisms/Browser/BrowserHome.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <BrowserHome />
   </main>
 </template>

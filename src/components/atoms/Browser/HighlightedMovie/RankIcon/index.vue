@@ -26,7 +26,7 @@
             </defs>
         </svg>
 
-        <div class="t-rkiye-de-bug-n-4-numara">Türkiye’de Bugün 4 Numara</div>
+        <div class="movie-name">Türkiye’de Bugün 4 Numara</div>
     </div>
 </template>
   
@@ -46,7 +46,7 @@
         overflow: visible;
     }
 
-    .t-rkiye-de-bug-n-4-numara {
+    .movie-name {
         color: #ffffff;
         text-align: left;
         font: var(--netflix-sans-medium-30-px, 500 30px 'Netflix Sans', sans-serif);

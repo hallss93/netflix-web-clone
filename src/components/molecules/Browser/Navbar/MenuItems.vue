@@ -1,10 +1,5 @@
 <script lang="ts" setup>
-import MenuItem from './MenuItem.vue'
-const props = defineProps({
-  title: String,
-  active: Boolean,
-})
-
+import MenuItem from '../../../atoms/Browser/Navbar/MenuItem.vue'
 
 </script>
 <template>

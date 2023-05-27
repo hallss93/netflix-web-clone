@@ -1,6 +1,6 @@
-<script setup lang="ts">
-import IconMain from './icons/IconMain.vue'
-import MenuItems from './MenuItems.vue' 
+<script setup lang="ts"> 
+import IconMain from '@/components/atoms/Browser/Navbar/icons/IconMain.vue';
+import MenuItems from '@/components/molecules/Browser/Navbar/MenuItems.vue';
 </script>
 
 <template>
