@@ -3,7 +3,7 @@ import MenuItem from '../../../atoms/Browser/Navbar/MenuItem.vue'
 
 </script>
 <template>
-  <div class="menu-container">
+  <div class="menu-items">
     <MenuItem :active="true" title="Início" />
     <MenuItem :active="false" title="Séries" />
     <MenuItem :active="false" title="Filmes" />
@@ -14,16 +14,13 @@ import MenuItem from '../../../atoms/Browser/Navbar/MenuItem.vue'
 </template>
 
 <style scoped lang="scss">
-.menu-container {
+.menu-items {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
   gap: 20px;
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
 }
 </style>

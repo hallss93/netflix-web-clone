@@ -63,7 +63,8 @@ const getComponet = (index: number) => {
   
 <style lang="scss" scoped>
 .carousel-container~.carousel-container {
-    margin-top: 50px;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
 }
 
 .carousel-container {
